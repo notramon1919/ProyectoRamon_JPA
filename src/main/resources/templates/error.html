@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>ERROR!!!</title>
+    <link rel="stylesheet" th:href="@{/css/errors.css}"/>
+</head>
+<body>
+<div class="error-container">
+    <h1> Que has fet abovat </h1>
+    <p th:text="${errorMessage}">Error message goes here</p>
+    <img src="/img/error.jpg" alt="Error Image">
+</div>
+</body>

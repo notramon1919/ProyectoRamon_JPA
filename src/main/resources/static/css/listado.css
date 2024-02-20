@@ -1,0 +1,66 @@
+/* Reset de estilos y estilos básicos */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    background-color: #f4f4f4;
+}
+
+/* Estilo de la lista no ordenada */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+}
+
+/* Estilo de los elementos de la lista */
+li {
+    background-color: #3498db;
+    color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio de color al pasar el mouse sobre los elementos */
+li:hover {
+    background-color: #2980b9;
+}
+
+/* Estilo para el enlace dentro de los elementos de la lista */
+li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces */
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilo para las celdas de la tabla */
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Alternar colores de fondo para filas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Cambio de color al pasar el mouse sobre las filas */
+tr:hover {
+    background-color: #ddd;
+}

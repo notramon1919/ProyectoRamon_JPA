@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Listado de Estadísticas Base</title>
+    <link rel="stylesheet" type="text/css" href="/css/tabla.css">
+</head>
+<body>
+<h1 th:text="'Listado de ' + ${nomEntitat}"></h1>
+<table style="border: 2px solid black; padding: 2%">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Vida </th>
+            <th> Daño </th>
+            <th> Suerte </th>
+            <th> Velocidad </th>
+            <th> Velocidad de Ataque</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="entitat : ${entitatList}">
+            <td th:text="${entitat.id}"> -- </td>
+            <td th:text="${entitat.vida}"> -- </td>
+            <td th:text="${entitat.daño}"> -- </td>
+            <td th:text="${entitat.suerte}"> -- </td>
+            <td th:text="${entitat.velocidad}"> -- </td>
+            <td th:text="${entitat.velocidadAtaque}"> -- </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

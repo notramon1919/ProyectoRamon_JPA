@@ -1,0 +1,40 @@
+/* Reset de estilos y estilos básicos */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    background-color: #f4f4f4;
+}
+
+/* Estilo de la lista no ordenada */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+}
+
+/* Cambio de color al pasar el mouse sobre los enlaces */
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Estilo para las celdas de la tabla */
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Alternar colores de fondo para filas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
