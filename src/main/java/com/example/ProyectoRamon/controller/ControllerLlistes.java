@@ -2,71 +2,62 @@ package com.example.ProyectoRamon.controller;
 
 import com.example.ProyectoRamon.model.Entities.*;
 import com.example.ProyectoRamon.model.repositories.*;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+
+@RequestMapping("/api")
+@CrossOrigin(origins = "*")
+@RestController
 public class ControllerLlistes {
-    private final PersonajeRepository personajeRepository;
-    private final ItemRepository itemsRepository;
-    private final DesbloqueoPersonajeRepository desbloqueoPersonajeRepository;
-    private final EstadisticasBaseRepository estadisticasBaseRepository;
-    private final PersonajeEstadisticasBaseRepository personajeEstadisticasBaseRepository;
 
-    public ControllerLlistes(
-            PersonajeRepository personajeRepository,
-            ItemRepository itemsRepository ,
-            DesbloqueoPersonajeRepository desbloqueoPersonajeRepository,
-            EstadisticasBaseRepository estadisticasBaseRepository,
-            PersonajeEstadisticasBaseRepository personajeEstadisticasBaseRepository
-            ) {
-        this.personajeRepository = personajeRepository;
-        this.itemsRepository = itemsRepository;
-        this.desbloqueoPersonajeRepository = desbloqueoPersonajeRepository;
-        this.estadisticasBaseRepository = estadisticasBaseRepository;
-        this.personajeEstadisticasBaseRepository = personajeEstadisticasBaseRepository;
+    @Autowired
+    private ItemRepository itemRepository;
+
+    @Autowired
+    private PersonajeRepository personajeRepository;
+
+    @Autowired
+    private EstadisticasBaseRepository estadisticasBaseRepository;
+
+    @Autowired
+    private DesbloqueoPersonajeRepository desbloqueoPersonajeRepository;
+
+    @Autowired
+    private PersonajeEstadisticasBaseRepository personajeEstadisticasBaseRepository;
+
+    @GetMapping("/items")
+    public List<Items> sacarItems() {
+        return (List<Items>) itemRepository.findAll();
     }
 
     @GetMapping("/personajes")
-    public String llistatCiutats(Model model) {
-        Iterable<Personaje> personajes = personajeRepository.findAll();
-        model.addAttribute("nomEntitat", "Personajes");
-        model.addAttribute("entitatList", personajes);
-        return "LlistatGeneral";
-    }
-
-    @GetMapping("/items")
-    public String llistatItems(Model model) {
-        Iterable<Items> items = itemsRepository.findAll();
-        model.addAttribute("nomEntitat", "Items");
-        model.addAttribute("entitatList", items);
-        return "LlistatGeneral";
-    }
-
-    @GetMapping("/desbloqueoPersonajes")
-    public String desbloqueoPersonajes(Model model) {
-        Iterable<DesbloqueoPersonaje> desbloqueoPersonajes = desbloqueoPersonajeRepository.findAll();
-        model.addAttribute("nomEntitat", "DesbloqueosPersonajes");
-        model.addAttribute("entitatList", desbloqueoPersonajes);
-        return "DesbloqueoPersonajesAll";
+    public List<Personaje> sacarPersonajes() {
+        return (List<Personaje>) personajeRepository.findAll();
     }
 
     @GetMapping("/estadisticasBase")
-    public String estadisticasBase(Model model) {
-        Iterable<EstadisticasBase> estadisticasBases = estadisticasBaseRepository.findAll();
-        model.addAttribute("nomEntitat", "EstadisticasBase");
-        model.addAttribute("entitatList", estadisticasBases);
-        return "EstadisticasBaseAll";
+    public List<EstadisticasBase> sacarEstadisticasBase() {
+        return (List<EstadisticasBase>) estadisticasBaseRepository.findAll();
+    }
+
+    @GetMapping("/desbloqueoPersonaje")
+    public List<DesbloqueoPersonaje> sacarDesbloqueos() {
+        return (List<DesbloqueoPersonaje>) desbloqueoPersonajeRepository.findAll();
     }
 
     @GetMapping("/personajeEstadisticasBase")
-    public String personajeEstadisticasBase(Model model) {
-        Iterable<PersonajeEstadisticasBase> personajeEstadisticasBases = personajeEstadisticasBaseRepository.findAll();
-        model.addAttribute("nomEntitat", "PersonajeEstadisticasBase");
-        model.addAttribute("entitatList", personajeEstadisticasBases);
-        return "PersonajeEstadisticasBaseAll";
+    public List<PersonajeEstadisticasBase> sacarPersonajeEstadisticas() {
+        return (List<PersonajeEstadisticasBase>) personajeEstadisticasBaseRepository.findAll();
     }
+
+
+
+
 
 
 
