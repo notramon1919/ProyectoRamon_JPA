@@ -17,16 +17,12 @@ public class ControllerLlistes {
 
     @Autowired
     private ItemRepository itemRepository;
-
     @Autowired
     private PersonajeRepository personajeRepository;
-
     @Autowired
     private EstadisticasBaseRepository estadisticasBaseRepository;
-
     @Autowired
     private DesbloqueoPersonajeRepository desbloqueoPersonajeRepository;
-
     @Autowired
     private PersonajeEstadisticasBaseRepository personajeEstadisticasBaseRepository;
 

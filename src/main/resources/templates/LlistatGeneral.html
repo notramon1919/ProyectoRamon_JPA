@@ -8,7 +8,11 @@
 <body>
 <h1 th:text="'Llistat de ' + ${nomEntitat}"></h1>
 <ul>
-  <li th:each="entitat : ${entitatList}" th:text="${entitat.nombre}"></li>
+  <li th:each="entitat : ${entitat}" style="text-align: justify;">
+    <p th:text="${entitat.id}"> --- </p>
+    <p th:text="${entitat.nombre}"> --- </p>
+    <img style="height: 32px; width: 32px;" th:src="${entitat.urlImagen}" alt="No se ha podido cargar la imagen">
+  </li>
 </ul>
 </body>
 </html>
